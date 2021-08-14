@@ -1,4 +1,4 @@
-FROM opensuse/leap:15.1
+FROM opensuse/leap:15.3
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
@@ -7,7 +7,7 @@ RUN zypper -n in -t pattern devel_basis
 RUN set -eux; \
     zypper -n install curl; \
 	curl -o /tmp/install_rust.sh https://sh.rustup.rs; \
-	sh /tmp/install_rust.sh -y --default-toolchain 1.50.0;
+	sh /tmp/install_rust.sh -y;
 
 RUN cargo install cargo-rpm
 
@@ -18,7 +18,7 @@ ENV PATH=/usr/local/bin:/root/.cargo/bin:$PATH \
 RUN zypper -n install rpm-build
 RUN zypper -n install systemd-rpm-macros
 
-RUN zypper --non-interactive addrepo -G https://download.opensuse.org/repositories/home:Ledest:misc/openSUSE_Leap_15.1/home:Ledest:misc.repo
+RUN zypper --non-interactive addrepo -G https://download.opensuse.org/repositories/home:Ledest:misc/openSUSE_Leap_15.3/home:Ledest:misc.repo
 RUN zypper -n refresh
 RUN zypper -n install musl
 RUN zypper -n install musl-gcc
