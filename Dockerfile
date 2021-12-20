@@ -1,4 +1,4 @@
-FROM opensuse/leap:15.3
+FROM opensuse/leap:latest
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
@@ -20,12 +20,7 @@ RUN zypper -n install systemd-rpm-macros
 
 RUN zypper --non-interactive addrepo -G https://download.opensuse.org/repositories/home:Ledest:misc/openSUSE_Leap_15.3/home:Ledest:misc.repo
 RUN zypper -n refresh
-RUN zypper -n install musl
-RUN zypper -n install musl-gcc
-RUN rustup target add x86_64-unknown-linux-musl
 
-ENV CC=/usr/bin/musl-gcc \
-    PREFIX=/musl
 ENV PATH=/usr/local/cargo/bin/cargo:$PATH
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
