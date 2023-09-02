@@ -18,7 +18,7 @@ ENV PATH=/usr/local/bin:/root/.cargo/bin:$PATH \
 RUN zypper -n install rpm-build
 RUN zypper -n install systemd-rpm-macros
 
-RUN zypper --non-interactive addrepo -G https://download.opensuse.org/repositories/home:Ledest:misc/openSUSE_Leap_15.3/home:Ledest:misc.repo
+RUN zypper --non-interactive addrepo -G https://download.opensuse.org/repositories/home:Ledest:misc/openSUSE_Leap_15.5/home:Ledest:misc.repo
 RUN zypper -n refresh
 
 ENV PATH=/usr/local/cargo/bin/cargo:$PATH

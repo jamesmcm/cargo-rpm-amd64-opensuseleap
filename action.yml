@@ -1,6 +1,6 @@
 # action.yml
 name: 'Rust Cargo Rpm Package Build (amd64, OpenSUSELeap)'
-description: 'Builds a statically linked rpm package, amd64, musl, opensuse leap 15.1'
+description: 'Builds a statically linked rpm package, amd64, musl, opensuse leap 15.5'
 branding:
   icon: 'package'
   color: 'orange'
@@ -11,6 +11,6 @@ inputs:
     default: 'cargo rpm build -v'
 runs:
   using: 'docker'
-  image: 'docker://jamesmcm03/cargo-rpm-amd64-opensuseleap:20230102'
+  image: 'docker://jamesmcm03/cargo-rpm-amd64-opensuseleap:20230902'
   args:
     - ${{ inputs.cmd }}
