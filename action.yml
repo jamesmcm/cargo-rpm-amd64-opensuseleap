@@ -11,6 +11,6 @@ inputs:
     default: 'cargo rpm build -v'
 runs:
   using: 'docker'
-  image: 'docker://jamesmcm03/cargo-rpm-amd64-opensuseleap:20250517'
+  image: 'docker://jamesmcm03/cargo-rpm-amd64-opensuseleap:20250912'
   args:
     - ${{ inputs.cmd }}
