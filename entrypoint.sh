@@ -15,7 +15,7 @@ PATH=/usr/local/bin:/root/.cargo/bin:/usr/local/cargo/bin/cargo:$PATH
 whoami
 printenv
 find .
-mkdir target
+mkdir -p target
 chmod 0777 ./target
 export CARGO_TARGET_DIR=$GITHUB_WORKSPACE/target
 which cargo || true

@@ -1,14 +1,14 @@
-# `cargo rpm` Build Environment (opensuseleap amd64)
+# `cargo generate-rpm` Build Environment (opensuseleap amd64)
 
-Provides a build environment for executing `cargo rpm build` [1] and producing statically linked binaries for the built `.rpm` package.
+Provides a build environment for executing `cargo generate-rpm` [1] and producing `.rpm` packages.
 
-This build on a `opensuse/leap:15.1` base image and targets `x86_64-unknown-linux-musl`.
+This builds on a `opensuse/leap:16.0` base image.
 
 The interface for this package was inspired/copied from the cargo-static-build [2] action.
 
-[1] `cargo rpm` provided by iqlusion
-- https://github.com/iqlusioninc/cargo-rpm
-- https://crates.io/crates/cargo-rpm
+[1] `cargo generate-rpm` provided by cat-in-136
+- https://github.com/cat-in-136/cargo-generate-rpm
+- https://crates.io/crates/cargo-generate-rpm
 
 [2] https://github.com/zhxiaogg/cargo-static-build
 
@@ -16,11 +16,11 @@ The interface for this package was inspired/copied from the cargo-static-build [
 
 ## Inputs
 
-`cmd` - The command to be executed inside the container. Defaults to `cargo rpm build -v`
+`cmd` - The command to be executed inside the container. Defaults to `cargo build --release && cargo generate-rpm`
 
 ## Outputs
 
-None, besides the `rpm` package that is built. The built `.rpm` will be located in `target/x86_64-unknown-linux-musl/release/rpmbuild/RPMS/x86_64/<RPM>`.
+None, besides the `rpm` package that is built. The built `.rpm` will be located in `target/generate-rpm/<RPM>`.
 
 ## Example Usage
 

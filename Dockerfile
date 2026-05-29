@@ -9,7 +9,7 @@ RUN set -eux; \
 	curl -o /tmp/install_rust.sh https://sh.rustup.rs; \
 	sh /tmp/install_rust.sh -y --default-toolchain stable --profile minimal;
 
-RUN cargo install cargo-rpm
+RUN cargo install cargo-generate-rpm
 
 ENV PATH=/usr/local/bin:/root/.cargo/bin:$PATH \
     PKG_CONFIG_PATH=/usr/local/lib/pkgconfig \
